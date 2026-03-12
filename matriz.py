@@ -22,17 +22,3 @@ class Matriz:
             for j in range(self.dim):
                 self.matriz[i][j] = random.randint(self.MIN_RAND, self.MAX_RAND)
 
-
-a: Matriz = Matriz(3)
-a.imprimir()
-a.rellenar_aleatorio()
-a.imprimir()
-print(a.matriz)
-
-
-
-
-# Manera de crear e imprimir la matriz de forma correcta:
-# a = [[0] * 3] * 3
-# for i in range(len(a)):
-#     print(a[i])
