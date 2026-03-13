@@ -21,13 +21,14 @@ class Main:
         matriz.imprimir()
 
     def multiplicar_matrices(self, mat_1: Matriz, mat_2: Matriz):
-        c: list[list[int]] = [[], [], []]
+        c: list[list[int]] = [[0] * len(mat_1.matriz) for _ in range(len(mat_1.matriz))]
         for i in range(len(mat_1.matriz)):
             for j in range(len(mat_2.matriz)):
                 c[i][j] = ((mat_1.matriz[i][0] * mat_2.matriz[0][j]) +
                            (mat_1.matriz[i][1] * mat_2.matriz[1][j]) +
                            (mat_1.matriz[i][2] * mat_2.matriz[2][j]))
-        print(c)
+        for i in range(len(c)):
+            print(c[i])
 
     def run(self):
         opcion: int = -1
