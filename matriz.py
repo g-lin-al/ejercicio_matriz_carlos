@@ -9,9 +9,11 @@ class Matriz:
         self.dim: int = dim
         self.matriz: list[list[int]] = [[self.INI] * self.dim for _ in range(self.dim)]
 
-    # def __str__(self): # dunder str necesita un return y no sé cómo hacerlo con este tipo
-    #     for i in range(len(self.matriz)):
-    #         print(self.matriz[i])
+    def __str__(self):
+        imprimir: str = ''
+        for i in self.matriz:
+            imprimir += f"{i}\n"
+        return imprimir
 
     def imprimir(self):
         for i in range(len(self.matriz)):

@@ -17,18 +17,14 @@ class Main:
         opcion = int(input("¿Opción?: "))
         return opcion
 
-    def imprimir_matriz(self, matriz: Matriz):
-        matriz.imprimir()
-
-    def multiplicar_matrices(self, mat_1: Matriz, mat_2: Matriz):
-        c: list[list[int]] = [[0] * len(mat_1.matriz) for _ in range(len(mat_1.matriz))]
+    def multiplicar_matrices(self, mat_1: Matriz, mat_2: Matriz) -> Matriz:
+        c: Matriz = Matriz(len(mat_1.matriz))
         for i in range(len(mat_1.matriz)):
             for j in range(len(mat_2.matriz)):
-                c[i][j] = ((mat_1.matriz[i][0] * mat_2.matriz[0][j]) +
-                           (mat_1.matriz[i][1] * mat_2.matriz[1][j]) +
-                           (mat_1.matriz[i][2] * mat_2.matriz[2][j]))
-        for i in range(len(c)):
-            print(c[i])
+                c.matriz[i][j] = ((mat_1.matriz[i][0] * mat_2.matriz[0][j]) +
+                                  (mat_1.matriz[i][1] * mat_2.matriz[1][j]) +
+                                  (mat_1.matriz[i][2] * mat_2.matriz[2][j]))
+        return c
 
     def run(self):
         opcion: int = -1
@@ -45,24 +41,24 @@ class Main:
                 a = Matriz(dim)
                 a.rellenar_aleatorio()
                 print("Matriz creada aleatoriamente:")
-                a.imprimir()
+                print(a)
             elif opcion == Cons.OPCION_MATRIZ_2:
                 b = Matriz(dim)
                 b.rellenar_aleatorio()
                 print(f"Matriz creada aleatoriamente de dimensión {dim}:")
-                b.imprimir()
+                print(b)
             elif opcion == Cons.OPCION_MOSTRAR:
                 print("Introducir letra \"a\" para mostrar la matriz 1.")
                 print("Introducir letra \"b\" para mostrar la matriz 2.")
                 opcion_letra = input("¿Letra?: ")
                 if opcion_letra == Cons.OPCION_A:
-                    a.imprimir()
+                    print(a)
                 elif opcion_letra == Cons.OPCION_B:
-                    b.imprimir()
+                    print(b)
                 else:
                     print("--- ERROR --- Opción no reflejada.")
             elif opcion == Cons.OPCION_MULTIPLICAR:
-                self.multiplicar_matrices(a, b)
+                print(self.multiplicar_matrices(a, b))
             elif opcion == Cons.OPCION_SALIR:
                 print("Cerrando aplicación...")
             else:
