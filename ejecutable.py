@@ -21,9 +21,8 @@ class Main:
         c: Matriz = Matriz(len(mat_1.matriz))
         for i in range(len(mat_1.matriz)):
             for j in range(len(mat_2.matriz)):
-                c.matriz[i][j] = ((mat_1.matriz[i][0] * mat_2.matriz[0][j]) +
-                                  (mat_1.matriz[i][1] * mat_2.matriz[1][j]) +
-                                  (mat_1.matriz[i][2] * mat_2.matriz[2][j]))
+                for n in range(len(mat_1.matriz)):
+                    c.matriz[i][j] += (mat_1.matriz[i][n] * mat_2.matriz[n][j])
         return c
 
     def run(self):
